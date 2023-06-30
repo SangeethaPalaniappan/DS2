@@ -6,7 +6,6 @@ class Node:
         self.data=val
         self.right=None
 
-
 def Insert(root,key): 
     temp=root   
     if temp==None:
