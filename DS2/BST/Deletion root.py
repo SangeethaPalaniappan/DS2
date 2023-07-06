@@ -87,7 +87,10 @@ def Delete(root,val):
                                 S=root.right
                                 root.right=root.right.left
                                 break 
-                            S=None
+                            else:
+                                S=root.right
+                                root.right=None
+                                break
                         root=root.right
                       Root=S
                       if root.left!=None:
@@ -133,7 +136,10 @@ def Delete(root,val):
                                 S=root.right
                                 root.right=root.right.left
                                 break 
-                            S=None
+                            else:
+                                S=root.right
+                                root.right=None
+                                break
                         root=root.right
                       Root=S
                       if root.left!=None:
