@@ -1,5 +1,6 @@
 #Deletion in Binary Search Tree
 
+
 class Node:
     def __init__(self,val):
         self.left=None
@@ -51,6 +52,7 @@ def Search(root,val):
     
     else:
         return 0
+
 
 def Delete(root,val):
         #Deleting the child node 
@@ -158,14 +160,14 @@ def Delete(root,val):
                         S=root.right
                         root.right=root.right.left
                         break 
-                    S=None
+                    else:
+                        S=root.right
+                        root.right=None
+                        break
                 root=root.right
-            else:
-               S=None
-            Root=S
             
-            if root.left!=None:
-                root=root.left
+            
+            Root=S
             Root.left=temp.left
             Root.right=temp.right
             temp.left=None
@@ -173,30 +175,27 @@ def Delete(root,val):
             temp=None
             return Root
             
-                  
-                  
 root=None
 root=Insert(root,50)
-root=Insert(root,70)
 root=Insert(root,40)
 root=Insert(root,30)
-root=Insert(root,25)
 root=Insert(root,43)
+root=Insert(root,25)
+root=Insert(root,70)
 root=Insert(root,90)
-root=Insert(root,60)
-root=Insert(root,55)
-root=Insert(root,65)
-root=Insert(root,67)
-root=Insert(root,66)
 root=Insert(root,80)
 root=Insert(root,100)
+root=Insert(root,60)
+root=Insert(root,65)
+root=Insert(root,55)
+root=Insert(root,67)
+root=Insert(root,66)
 if Search(root,20)==1:
     print("Element found")
 else:
     print("Element Not found")
-
+print("Deleting the leaf node")
+root=Delete(root,100)
 print("Deleting the node with one child")
 root=Delete(root,70)
-root=Delete(root,43)
-
 root=Delete(root,50)
