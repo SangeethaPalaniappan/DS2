@@ -7,25 +7,24 @@ class Node:
         self.right=None
 
 
-def Insert(root,key): 
-    temp=root   
-    if temp==None:
+def Insert(root,key):   
+    if root==None:
         newnode=Node(key)
         root=newnode
         return root
-    elif temp.data<key:
-        if temp.right!=None:
-           Insert(temp.right,key)
+    elif root.data<key:
+        if root.right!=None:
+           Insert(root.right,key)
         else:   
            newnode=Node(key)
-           temp.right=newnode
+           root.right=newnode
         return root    
-    elif temp.data>key:
-        if temp.left!=None:
-           Insert(temp.left,key)
+    elif root.data>key:
+        if root.left!=None:
+           Insert(root.left,key)
         else:          
            newnode=Node(key)
-           temp.left=newnode
+           root.left=newnode
         return root    
     else:
         print("Duplicate elements are not allowed")            
