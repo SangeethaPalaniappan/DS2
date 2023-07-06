@@ -32,26 +32,31 @@ def Insert(root,key):
 
                   
 def Search(root,val):
-    if val<root.data:
-        temp=root.left
-        if temp!=None:
-            return Search(temp,val)
-        else:
-            return 0
+    if root!=None:
+        if val<root.data:
+            temp=root.left
+            if temp!=None:
+                return Search(temp,val)
+            else:
+                return 0
                
-    elif val>root.data:
-        temp=root.right
-        if temp!=None:
-            return Search(temp,val)
-        else:
-            return 0      
-    elif root.data==val:
-        return 1
+        elif val>root.data:
+            temp=root.right
+            if temp!=None:
+                return Search(temp,val)
+            else:
+                return 0      
+        elif root.data==val:
+            return 1
     
     else:
         return 0
                      
 root=None
+if Search(root,20)==1:
+    print("Element found")
+else:
+    print("Element Not found")
 root=Insert(root,20)
 root=Insert(root,50)
 root=Insert(root,10)
