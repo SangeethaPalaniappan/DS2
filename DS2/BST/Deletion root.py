@@ -82,11 +82,12 @@ def Delete(root,val):
                       
                       while root.right!=None:
                         if root.right.right==None:
-                            
+                            #if there is a left child of the root.right then 
                             if root.right.left!=None:
                                 S=root.right
                                 root.right=root.right.left
                                 break 
+                           #if there is a no child or it is the leaf node of the root.right then
                             else:
                                 S=root.right
                                 root.right=None
