@@ -1,4 +1,5 @@
 class matrix:
+    
     def __init__(self,size):
         self.a=[]
         self.size=size
@@ -13,16 +14,19 @@ class matrix:
             self.a[start][end]=1
         else:
             print("There exist an edge")
+    
     def removedge(self,start,end):
         if self.a[start][end]==1:
             self.a[start][end]=0
         else:
             print("There is no edge")
+    
     def searchedge(self,start,end):
         if self.a[start][end]==1:
             print("Element found")
         else:
             print("No element found")
+    
     def printedge(self,size):
         for x in range(size):
             for y in range(size):
