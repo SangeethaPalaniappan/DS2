@@ -67,6 +67,7 @@ root=Insert(root,15)
 root=Insert(root,25)
 root=Insert(root,150)
 root=Insert(root,100)
+
 if Search(root,20)==1:
     print("Element found")
 else:
