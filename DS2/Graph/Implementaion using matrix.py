@@ -8,24 +8,24 @@ class matrix:
             print(self.a[i])
         
 
-    def addedge(self,start,end):
+    def addedge(self,start,end,val):
         
         if self.a[start][end]==0:
-            self.a[start][end]=1
+            self.a[start][end]=val
         else:
             print("There exist an edge")
     
-    def removedge(self,start,end):
-        if self.a[start][end]==1:
+    def removedge(self,start,end,val):
+        if self.a[start][end]==val:
             self.a[start][end]=0
         else:
             print("There is no edge")
     
-    def searchedge(self,start,end):
-        if self.a[start][end]==1:
-            print("Element found")
+    def searchedge(self,start,end,val):
+        if self.a[start][end]==val:
+            print("Edge found")
         else:
-            print("No element found")
+            print("No edge found")
     
     def printedge(self,size):
         for x in range(size):
@@ -33,14 +33,22 @@ class matrix:
                 print(self.a[x][y],end=" ")
             print("\n")    
 
-d=matrix(3)
-d.addedge(0,1)
-d.addedge(0,2)
-d.addedge(2,1)
-d.addedge(2,1)
-d.removedge(0,0)
-d.removedge(0,2)
-d.removedge(2,1)
-d.searchedge(0,1)
-d.searchedge(1,2)
-d.printedge(3)
+size=int(input("s:"))
+d=matrix(size)
+print("\n\nAdding Edge:")
+d.addedge(0,1,5)
+d.addedge(0,2,6)
+d.addedge(1,2,7)
+d.addedge(2,1,2)
+d.addedge(2,1,3)
+print("\nprinting Edge:")
+d.printedge(size)
+print("\nRemoving Edge:")
+d.removedge(0,0,3)
+d.removedge(0,2,6)
+d.removedge(2,1,5)
+print("\n\nSearching Edge:")
+d.searchedge(0,1,5)
+d.searchedge(1,2,4)
+print("\nPrinting Edge after deletion:")
+d.printedge(size)
