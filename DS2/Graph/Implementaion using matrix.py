@@ -1,3 +1,5 @@
+#Need to write function for the nearest distance
+
 class matrix:
     
     def __init__(self,size):
