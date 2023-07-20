@@ -24,7 +24,26 @@ class Index:
     def __init__(self,a):
         self.m=a.append(None)
         
-def Insert(i,val,arr):
+def Swap(i,arr,val,pos):
+    if val>arr[i]:
+        temp=arr[i]
+        arr[pos]=temp
+        arr[i]=val
+         
+        if i!=0:
+            Swap((i-1)//2,arr,arr[i],i)
+            left=(2*i)+1
+            right=left+1
+            if left<len(arr) and arr[left]>=arr[i]:
+                Swap(pos,arr,val,left)
+                if right<len(arr)and arr[right]>=arr[i]:
+                    Swap(pos,arr,val,right)   
+    return arr    
+    
+    
+
+        
+def Insert(i,val,arr):#i is the parent node
     a=Index(arr)
     left=(2*i)+1
     right=left+1
@@ -34,9 +53,11 @@ def Insert(i,val,arr):
     else:
         if arr[left]==None:
             arr[left]=val
+            Swap(i,arr,val,left)
             return arr
         elif arr[right]==None:
             arr[right]=val
+            Swap(i,arr,val,right)
             return arr
 def Size(size):
     if size!=0:
