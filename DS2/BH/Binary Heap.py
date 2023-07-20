@@ -38,39 +38,80 @@ def Insert(i,val,arr):
         elif arr[right]==None:
             arr[right]=val
             return arr
+def Size(size):
+    if size!=0:
+        i=(size-1)//2
+        return i
+    else:
+        i=0
+        return i
 
+def Parent(arr,val):
+    for x in arr:
+        if val==x:
+            break
+    else:
+        e="No Element in the list"
+        return e
+        
+    v=arr.index(val)
+    if v==0:
+        r="It is the root node"
+        return r
+        #here no v>=size because the size is already fixed and 
+        #if there is no value then v cannot exist
+    else:
+        
+        p=(v-1)//2 #parent of the node
+        m=arr[p]
+        return m
 
+def delete(arr):
+    c=len(a)
+    temp=a[0]
+    a[0]=a[c-1]
+    a[c-1]=temp
+    a.pop()
+    return a
 a=[]
-size=len(a)
-
-if size!=0:
-    i=size-1
-else:
-    i=0
+s=len(a)
+i=Size(s)
 a=Insert(i,50,a)
-size=len(a)
-if size!=0:
-    i=size-1
-else:
-    i=0
-a=Insert(i,40,a)
-size=len(a)
-if size!=0:
-    i=(size-1)//2
-else:
-    i=0
-a=Insert(i,30,a)
-size=len(a)
-if size!=0:
-    i=(size-1)//2
-else:
-    i=0
-a=Insert(i,20,a)
-size=len(a)
-if size!=0:
-    i=(size-1)//2
-else:
-    i=0
-a=Insert(i,10,a)
 
+s=len(a)
+i=Size(s)
+a=Insert(i,40,a)
+
+s=len(a)
+i=Size(s)
+a=Insert(i,30,a)
+
+s=len(a)
+i=Size(s)
+a=Insert(i,20,a)
+
+s=len(a)
+i=Size(s)
+a=Insert(i,75,a)
+
+s=len(a)
+i=Size(s)
+a=Insert(i,94,a)
+
+s=len(a)
+i=Size(s)
+a=Insert(i,103,a)
+
+s=len(a)
+i=Size(s)
+a=Insert(i,221,a)
+
+a=delete(a)
+
+a=delete(a)
+
+print("Parent of 221:",Parent(a,221))
+print("Parent of 94:",Parent(a,94))
+print("Parent of 75:",Parent(a,75))
+print("Parent of 50:",Parent(a,50))
 
