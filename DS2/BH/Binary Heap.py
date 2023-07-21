@@ -20,9 +20,11 @@ def Insert(root,val):
     '''
 
 
-class Index:
+'''class Index:
     def __init__(self,a):
-        self.m=a.append(None)
+        self.m=a.append(None)'''
+def Index(a):
+    m=a.append(None)
         
 def Swap(i,arr,val,pos):
     if val>arr[i]:
