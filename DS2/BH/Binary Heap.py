@@ -1,6 +1,7 @@
 #Need to write Binary Heap
 
 '''
+#To work on linkedlist
 class Node:
     def __init__(self,val):
         self.data=val
@@ -21,7 +22,7 @@ def Insert(root,val):
 
 
 '''class Index:
-    def __init__(self,a):
+    def __init__(self,a):            #can also use this
         self.m=a.append(None)'''
 def Index(a):
     m=a.append(None)
