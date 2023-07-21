@@ -32,12 +32,12 @@ def Swap(i,arr,val,pos):
          
         if i!=0:
             Swap((i-1)//2,arr,arr[i],i)
-            left=(2*i)+1
+            '''left=(2*i)+1
             right=left+1
             if left<len(arr) and arr[left]>=arr[i]:
                 Swap(pos,arr,val,left)
                 if right<len(arr)and arr[right]>=arr[i]:
-                    Swap(pos,arr,val,right)   
+                    Swap(pos,arr,val,right)'''   
     return arr    
     
     
@@ -87,13 +87,61 @@ def Parent(arr,val):
         m=arr[p]
         return m
 
+
+def dswap(i,arr):#i is the parent node
+    left=(2*i)+1
+    right=left+1
+    if left<len(arr):
+        temp=arr[i]
+        if right==len(arr):
+            if arr[i]<arr[left]:
+                arr[i]=arr[left]
+                arr[left]=temp
+            return arr
+        else:
+            if arr[i]<arr[left] or arr[i]<arr[right]:
+                if arr[left]<arr[right]:
+                    arr[i]=arr[right]
+                    arr[right]=temp
+                    dswap(right,arr)
+                else:
+                    arr[i]=arr[left]
+                    arr[left]=temp
+                    dswap(left,arr)
+            return arr
+    elif left>=len(arr):
+        print("Index out of range")
 def delete(arr):
-    c=len(a)
+    c=len(arr)
     temp=a[0]
-    a[0]=a[c-1]
-    a[c-1]=temp
-    a.pop()
-    return a
+    arr[0]=arr[c-1]
+    arr[c-1]=temp
+    arr.pop()
+    dswap(0,arr)
+    return arr
+
+def Heap(arr,size):
+    l=size//2
+    while l>=0:
+        Heapify(arr,l,size)
+        l-=1
+    return arr    
+
+def Heapify(arr,i,size):
+    left=(2*i)+1
+    right=left+1
+    temp=i
+    
+    if left<size and arr[temp]<arr[left]:
+        temp=left
+    if right<size and arr[temp]<arr[right]:
+        temp=right
+    if temp!=i:
+        s=arr[temp]
+        arr[temp]=arr[i]
+        arr[i]=s
+        
+        Heapify(arr,temp,size)
 a=[]
 s=len(a)
 i=Size(s)
@@ -136,3 +184,9 @@ print("Parent of 94:",Parent(a,94))
 print("Parent of 75:",Parent(a,75))
 print("Parent of 50:",Parent(a,50))
 
+
+a=[10,20,30,40,50,60]
+a=Heap(a,len(a))
+
+for i in a:
+    print(i,end=" ")
