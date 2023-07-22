@@ -1,6 +1,7 @@
 #Need to write Binary Heap
 
 '''
+#To work on linkedlist
 class Node:
     def __init__(self,val):
         self.data=val
@@ -21,7 +22,7 @@ def Insert(root,val):
 
 
 '''class Index:
-    def __init__(self,a):
+    def __init__(self,a):            #can also use this
         self.m=a.append(None)'''
 def Index(a):
     m=a.append(None)
@@ -84,10 +85,31 @@ def Parent(arr,val):
         #here no v>=size because the size is already fixed and 
         #if there is no value then v cannot exist
     else:
-        
         p=(v-1)//2 #parent of the node
         m=arr[p]
         return m
+
+def ChildNode(arr,val):
+    for x in arr:
+        if val==x:
+            break
+    else:
+        print("No elements in the list")
+        
+    g=arr.index(val)
+    
+    left=(2*g)+1
+    right=left+1
+    if left>=len(arr):
+        print("It is the leaf node")
+    else:
+        if left==len(arr)-1:
+            print("It has only left child")
+            print("leftchild:",arr[left])
+        else:    
+            print("leftchild:",arr[left])
+            print("rightchild:",arr[right])
+        
 
 
 def dswap(i,arr):#i is the parent node
@@ -95,7 +117,7 @@ def dswap(i,arr):#i is the parent node
     right=left+1
     if left<len(arr):
         temp=arr[i]
-        if right==len(arr):
+        if right==len(arr):#Having only left child 
             if arr[i]<arr[left]:
                 arr[i]=arr[left]
                 arr[left]=temp
@@ -112,7 +134,7 @@ def dswap(i,arr):#i is the parent node
                     dswap(left,arr)
             return arr
     elif left>=len(arr):
-        print("Index out of range")
+        return arr
 def delete(arr):
     c=len(arr)
     temp=a[0]
@@ -176,6 +198,13 @@ a=Insert(i,103,a)
 s=len(a)
 i=Size(s)
 a=Insert(i,221,a)
+
+print("Child of 221:")
+ChildNode(a,221)
+print("Child of 20:")
+ChildNode(a,20)
+print("Child of 50:")
+ChildNode(a,50)
 
 a=delete(a)
 
