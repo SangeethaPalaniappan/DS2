@@ -1,6 +1,6 @@
 #Need to write function for the distance searching -completed
 #Need to search which is the shortest distance
-#Need to search the vertex
+#Need to search the vertex - not to change the name of the vertex
 
 class Node:
     def __init__(self,val,key):
@@ -78,7 +78,8 @@ class Linkedlist:
                 temp=temp.next 
             else:
                 print("No Edge Found")
-                    
+
+
     def printg(self,src):
         temp=self.head
         if a[src]==None:
@@ -164,6 +165,7 @@ s.delete(4,0,3)
 s.search(4,5,2)
 s.printg(4)
 s.vertexsearch(size,2)
+s.vertexsearch(size,7)
 #adding the vertex
 a.append(None)
 
