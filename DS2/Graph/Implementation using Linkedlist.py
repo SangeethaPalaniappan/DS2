@@ -1,6 +1,6 @@
 #Need to write function for the distance searching -completed
 #Need to search which is the shortest distance
-
+#Need to search the vertex
 
 class Node:
     def __init__(self,val,key):
@@ -88,9 +88,13 @@ class Linkedlist:
             while temp!=None:
                 print("\t",temp.gver,"[",temp.edge,"]",end=" ")
                 temp=temp.next
-            
-                    
-a=[None]*5
+    def vertexsearch(self,size,ver):
+        if ver>=size:
+            print("There is no vertex")
+        else:
+            print("Vertex found")             
+size=int(input("s"))                    
+a=[None]*size
 #a[0]=Node(1) 
 #a[1]=Node(0)
 #a[2]=Node(0)
@@ -159,9 +163,10 @@ s.printg(3)
 s.delete(4,0,3)
 s.search(4,5,2)
 s.printg(4)
-
+s.vertexsearch(size,2)
 #adding the vertex
 a.append(None)
 
 #deleting the vertex
 del(a[2])#2 is the position
+
