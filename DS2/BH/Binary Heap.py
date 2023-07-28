@@ -28,9 +28,12 @@ def Index(a):
     m=a.append(None)
         
 def Swap(i,arr,val,pos):
+    #i-parent node
+    #pos-either left or right index
+    #val-the new element to be added
     if val>arr[i]:
-        temp=arr[i]
-        arr[pos]=temp
+        
+        arr[pos]=arr[i]
         arr[i]=val
          
         if i!=0:
@@ -45,28 +48,33 @@ def Swap(i,arr,val,pos):
     
     
 
-        
+    #Insert is the Bottom-up approach
+    
 def Insert(i,val,arr):#i is the parent node
-    a=Index(arr)
-    left=(2*i)+1
-    right=left+1
+    a=Index(arr)#adding the index at last
+    left=(2*i)+1#left child index
+    right=left+1#right child index
+    
     if arr[i]==None:
         arr[i]=val
         return arr
+    
     else:
         if arr[left]==None:
             arr[left]=val
-            Swap(i,arr,val,left)
+            Swap(i,arr,val,left)#to check the value Binary heap property
             return arr
+            
         elif arr[right]==None:
             arr[right]=val
-            Swap(i,arr,val,right)
+            Swap(i,arr,val,right)#to check the value Binary heap property
             return arr
+
 def Size(size):
-    if size!=0:
+    if size!=0:#here size the parent node 
         i=(size-1)//2
         return i
-    else:
+    else:#if the position is root 
         i=0
         return i
 
@@ -123,7 +131,8 @@ def dswap(i,arr):#i is the parent node
                 arr[left]=temp
             return arr
         else:
-            if arr[i]<arr[left] or arr[i]<arr[right]:
+            if arr[i]<arr[left] or arr[i]<arr[right]:#to check the root node's children are greater than the parent
+                #if the root node is lesser then check whhich child is greater
                 if arr[left]<arr[right]:
                     arr[i]=arr[right]
                     arr[right]=temp
@@ -135,7 +144,12 @@ def dswap(i,arr):#i is the parent node
             return arr
     elif left>=len(arr):
         return arr
+
+##Delete is the Top-down approach
+    
 def delete(arr):
+    #swaping the 1st and last  and delete the last element
+    #after checking whether it satisfies the binary heap property
     c=len(arr)
     temp=a[0]
     arr[0]=arr[c-1]
@@ -151,7 +165,7 @@ def Heap(arr,size):
         l-=1
     return arr    
 
-def Heapify(arr,i,size):
+def Heapify(arr,i,size):#to check the given array satisfies the BH property else heapify it
     left=(2*i)+1
     right=left+1
     temp=i
