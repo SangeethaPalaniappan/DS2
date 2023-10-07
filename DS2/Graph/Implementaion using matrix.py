@@ -35,7 +35,9 @@ class matrix:
                 print(self.a[x][y],end=" ")
             print("\n")    
 
+print("Implementation of Graph using graph")
 size=int(input("s:"))
+
 d=matrix(size)
 print("\n\nAdding Edge:")
 d.addedge(0,1,5)
