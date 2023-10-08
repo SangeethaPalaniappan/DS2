@@ -13,6 +13,5 @@ obj = Circle()
 radius = 50
 per = Circle.perimeter(obj, radius)
 print(per)
-
 are = Circle.area(obj, radius)
 print(are)
